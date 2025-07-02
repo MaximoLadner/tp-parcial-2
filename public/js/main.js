@@ -30,27 +30,36 @@ function mostrarLanzamientosPaginados() {
 
 
     // Listo todas las tarjetas
-    
-    listaAMostrar.forEach(lanzamiento => {
-        const tarjeta = document.createElement('div');
-        tarjeta.className = 'tarjeta-lanzamiento';
-        tarjeta.innerHTML = `
-            <img class="imagenes-lanzamiento" src="${lanzamiento.links.patch.small || 'https://placehold.co/300x100?text=No-Image'}" alt="${lanzamiento.name}">
-            <div class="contenido-tarjeta">
-                <h3>Nombre del lanzamiento: ${lanzamiento.name}</h3>
-                <p class="fecha-lanzamiento"> Fecha de lanzamiento📅: ${new Date(lanzamiento.date_utc).toLocaleDateString()}</p>
-                <p class="estado-lanzamiento ${lanzamiento.success ? 'exito' : 'fallo'}">
-                    Estado del lanzamiento: ${lanzamiento.success ? '✅ Éxito' : '❌ Fallo'}
-                </p>
-                <button class="boton-detalle" onclick="mostrarDetalle('${lanzamiento.id}')">
-                    Ver detalles <i class="fas fa-rocket"></i>
-                </button>
-            </div>
-        `;
-        contenedorLanzamientos.appendChild(tarjeta);
-    });
+listaAMostrar.forEach(lanzamiento => {
+    let imgURL = lanzamiento.links.patch?.small;
 
-   
+    // Si la imagen existe y comienza con http://, la convertimos a https://
+    if (imgURL && imgURL.startsWith('http://')) {
+        imgURL = imgURL.replace('http://', 'https://');
+    }
+
+    // Si no hay imagen, usamos una imagen por defecto
+    if (!imgURL) {
+        imgURL = 'https://placehold.co/300x100?text=No-Image';
+    }
+
+    const tarjeta = document.createElement('div');
+    tarjeta.className = 'tarjeta-lanzamiento';
+    tarjeta.innerHTML = `
+        <img class="imagenes-lanzamiento" src="${imgURL}" alt="${lanzamiento.name}">
+        <div class="contenido-tarjeta">
+            <h3>Nombre del lanzamiento: ${lanzamiento.name}</h3>
+            <p class="fecha-lanzamiento"> Fecha de lanzamiento📅: ${new Date(lanzamiento.date_utc).toLocaleDateString()}</p>
+            <p class="estado-lanzamiento ${lanzamiento.success ? 'exito' : 'fallo'}">
+                Estado del lanzamiento: ${lanzamiento.success ? '✅ Éxito' : '❌ Fallo'}
+            </p>
+            <button class="boton-detalle" onclick="mostrarDetalle('${lanzamiento.id}')">
+                Ver detalles <i class="fas fa-rocket"></i>
+            </button>
+        </div>
+    `;
+    contenedorLanzamientos.appendChild(tarjeta);
+});
 }
 
 // Función principal: carga lanzamientos y los muestra
