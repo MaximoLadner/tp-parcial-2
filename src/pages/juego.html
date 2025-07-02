@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Verdadero o Falso? | SpaceX Game</title>
+    <link rel="stylesheet" href="../css/juego.css">
+</head>
+<body>
+    <div class="contenedor-juego">
+        <h1>¿Verdadero o Falso?</h1>
+        <div id="pregunta" class="pregunta">Cargando misión...</div>
+
+        <div class="botones">
+            <button onclick="responder(true)">✅ Verdadero</button>
+            <button onclick="responder(false)">❌ Falso</button>
+        </div>
+
+        <p id="resultado" class="resultado"></p>
+        <p id="puntos">Puntos: 0</p>
+
+        <button onclick="cargarNueva()" class="boton-nueva">🔄 Nueva Misión</button>
+        <a href="../../index.html"><button class="boton-nueva">Volver</button></a>
+    </div>
+
+    <audio id="sonido-acierto" src="../../public/images/acierto.mp3"></audio>
+    <audio id="sonido-error" src="../../public/images/error.mp3"></audio>
+
+    <script src="../js/juego.js"></script>
+</body>
+</html>

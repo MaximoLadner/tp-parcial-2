@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Misiones SpaceX | Maxi</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="public/images/rocket (1).png" type="image/x-icon">
+</head>
+<body>
+    <header id="inicio" class="cabecera">
+        <div class="contenedor">
+            <h1><span class="neon">Centro de Misiones</span> SpaceX</h1>
+            <p>Explora los lanzamientos espaciales históricos y futuros</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        
+        <!-- Filtros y búsqueda -->
+        <section class="filtros">
+            <input type="text" id="busqueda" placeholder="Buscar misión... 🔍" class="barra-busqueda">
+            <div class="grupo-filtros">
+                <select id="filtro-anio" class="selector-filtro">
+                    <option value="">Todos los años</option>
+                </select>
+                <select id="filtro-estado" class="selector-filtro">
+                    <option value="" style="color: black;">Todos los estados</option>
+                    <option value="success" style="color: black;">✅Éxito</option>
+                    <option value="failure" style="color: black;">❌Fallo</option>
+                </select>
+                <button id="ordenar-fecha" class="boton-neon">Ordenar por fecha <i class="fas fa-arrow-down"></i></button>
+                <a href="src/pages/lanzamientoRandom.html"><button class="boton-neon"> Generar lanzamiento random</button></a>
+                <a href="./src/pages/juego.html"><button class="boton-neon">Juego "¿Verdadero o Falso?"</button></a>
+            </div>
+        </section>
+
+        <!-- Tarjetas de lanzamientos -->
+        <section id="contenedor-lanzamientos" class="grid-lanzamientos">
+           
+            <div class="tarjeta-esqueleto"></div>
+            <div class="tarjeta-esqueleto"></div>
+            <div class="tarjeta-esqueleto"></div>
+        </section>
+
+           <!-- Boton para desplegar mas cards -->
+        <button id="boton-mostrar-mas" class="boton-mostrar-mas">Mostrar más</button>
+
+            <!-- Popup -->
+        <div class="modal-fondo" id="modalInfo">
+            <div class="modal-contenido" id="modalContenido">
+                <!-- Boton para cerrar el popup -->
+                <button class="cerrar-modal" onclick="cerrarModal()">✖</button>
+            </div>
+        </div>
+
+        <!-- Footer de la pagina -->
+        <footer class="footer">
+            <p>Creado por Maxi con la API de SpaceX 🚀</p>
+            <a href="#inicio"><img src="./public/images/arrow.png" alt="flecha para volver al inicio"></a>
+        </footer>
+    </main>
+
+    
+    <script src="src/js/main.js"></script>
+</body>
+</html>

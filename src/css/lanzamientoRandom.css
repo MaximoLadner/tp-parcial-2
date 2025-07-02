@@ -1,0 +1,171 @@
+:root {
+    --oscuro-espacial: #0d0f17;
+    --azul-espacio: #005288;
+    --neon-cyan: #00f0ff;
+    --neon-rosa: #ff00f0;
+    --texto-claro: #e0e0e0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--oscuro-espacial);
+    color: var(--texto-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+}
+
+h1 {
+    color: var(--neon-cyan);
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.tarjeta {
+    background-color: #151a28;
+    border: 1px solid var(--azul-espacio);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px var(--neon-rosa);
+    text-align: center;
+}
+
+.boton {
+    background-color: var(--neon-cyan);
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin: 10px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.boton:hover {
+    background-color: var(--neon-rosa);
+    color: white;
+    transform: scale(1.05);
+}
+
+.volver {
+    background-color: var(--azul-espacio);
+    color: white;
+}
+
+.volver:hover {
+    background-color: var(--neon-rosa);
+}
+
+/* Media Queries para responsive */
+@media (max-width: 768px) {
+    .contenedor {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .tarjeta {
+        padding: 15px;
+    }
+    
+    .boton {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .contenedor {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .tarjeta {
+        padding: 12px;
+        border-radius: 10px;
+    }
+    
+    .boton {
+        display: block;
+        width: 90%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+    
+    .botones-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Efectos adicionales para mejorar la experiencia */
+@media (hover: hover) {
+    .boton {
+        transition: all 0.3s ease;
+    }
+    
+    .boton:hover {
+        box-shadow: 0 0 15px var(--neon-rosa);
+    }
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1200px) {
+    .contenedor {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .contenedor {
+        max-width: 100%;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .tarjeta {
+        font-size: 0.95rem;
+        padding: 15px;
+    }
+
+    .boton {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+        display: block;
+    }
+}
