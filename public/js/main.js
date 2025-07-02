@@ -30,31 +30,38 @@ function mostrarLanzamientosPaginados() {
 
 
     listaAMostrar.forEach(lanzamiento => {
-    let imgURL = lanzamiento.links.patch?.small;
-
-    // Fallback si no hay imagen
-    if (!imgURL) {
-        imgURL = 'https://placehold.co/300x100?text=No-Image';
-    }
+    let imgURL = lanzamiento.links.patch?.small || '';
 
     const tarjeta = document.createElement('div');
     tarjeta.className = 'tarjeta-lanzamiento';
-    tarjeta.innerHTML = `
-        <img class="imagenes-lanzamiento" src="${imgURL}" alt="${lanzamiento.name}">
-        <div class="contenido-tarjeta">
-            <h3>Nombre del lanzamiento: ${lanzamiento.name}</h3>
-            <p class="fecha-lanzamiento"> Fecha de lanzamiento📅: ${new Date(lanzamiento.date_utc).toLocaleDateString()}</p>
-            <p class="estado-lanzamiento ${lanzamiento.success ? 'exito' : 'fallo'}">
-                Estado del lanzamiento: ${lanzamiento.success ? '✅ Éxito' : '❌ Fallo'}
-            </p>
-            <button class="boton-detalle" onclick="mostrarDetalle('${lanzamiento.id}')">
-                Ver detalles <i class="fas fa-rocket"></i>
-            </button>
-        </div>
+
+    const img = document.createElement('img');
+    img.className = 'imagenes-lanzamiento';
+    img.alt = lanzamiento.name;
+    img.src = imgURL;
+
+    // Si la imagen falla (timeout, bloqueo, 404...), cambiar por URL fallback online
+    img.onerror = () => {
+        img.src = 'https://placehold.co/300x100?text=Imagen+no+disponible';
+    };
+
+    const contenido = document.createElement('div');
+    contenido.className = 'contenido-tarjeta';
+    contenido.innerHTML = `
+        <h3>Nombre del lanzamiento: ${lanzamiento.name}</h3>
+        <p class="fecha-lanzamiento"> Fecha de lanzamiento📅: ${new Date(lanzamiento.date_utc).toLocaleDateString()}</p>
+        <p class="estado-lanzamiento ${lanzamiento.success ? 'exito' : 'fallo'}">
+            Estado del lanzamiento: ${lanzamiento.success ? '✅ Éxito' : '❌ Fallo'}
+        </p>
+        <button class="boton-detalle" onclick="mostrarDetalle('${lanzamiento.id}')">
+            Ver detalles <i class="fas fa-rocket"></i>
+        </button>
     `;
+
+    tarjeta.appendChild(img);
+    tarjeta.appendChild(contenido);
     contenedorLanzamientos.appendChild(tarjeta);
 });
-
    
 }
 
