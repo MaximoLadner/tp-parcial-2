@@ -7,7 +7,7 @@
       --texto-claro: #e0e0e0;
   }
 
-  /* Estilos generales */
+  
   body {
       font-family: 'Roboto', sans-serif;
       background-color: var(--oscuro-espacial);
@@ -25,7 +25,7 @@
       margin: 0 auto;
   }
 
-  /* Cabecera */
+
   .cabecera {
       background: linear-gradient(to right, #000428, #004e92);
       padding: 2rem 0;
@@ -47,7 +47,7 @@
       text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
   }
 
-  /* Filtros */
+  
   .filtros {
       display: flex;
       flex-direction: column;
@@ -91,14 +91,14 @@
       box-shadow: 0 0 15px var(--neon-cyan);
   }
 
-  /* Grid de lanzamientos */
+  
   .grid-lanzamientos {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
   }
 
-  /* Tarjeta de lanzamiento */
+  
   .tarjeta-lanzamiento {
       background: rgba(13, 15, 23, 0.8);
       border: 1px solid rgba(0, 240, 255, 0.1);
@@ -112,7 +112,7 @@
       border-color: var(--neon-cyan);
   }
 
-  /* Efecto de carga */
+  
   .tarjeta-esqueleto {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 8px;
@@ -126,7 +126,7 @@
       100% { opacity: 0.6; }
   }
 
-  /* Pie de página */
+ 
   .footer {
       text-align: center;
       margin-top: 3rem;
@@ -173,7 +173,7 @@
     transform: scale(1.15);
   }
 
-  /* Boton de mostrar mas fachero */
+  
   .boton-mostrar-mas {
     background: linear-gradient(90deg, #0ff, #0ff8, #08f);
     border: none;
@@ -205,7 +205,7 @@
     transform: scale(1.1);
   }
 
-  /* Popuip al hacer click en ver mas detalles */
+  
   .modal-fondo {
     display: none;
     position: fixed;
@@ -279,7 +279,7 @@
   }
 
 
-  /* RESPONSIVE */
+
 
 @media (max-width: 992px) {
     .cabecera {
@@ -340,19 +340,22 @@
         display: block;
     }
 
-    #ordenar-fecha{
-        width: 280px;
-        text-align: left;
+    #ordenar-fecha {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.6rem;
     }
 
-   #busqueda {
-    width: 87%;
-    max-width: 500px; 
-    padding: 0.8rem;
-    border: 1px solid var(--neon-cyan);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 4px;
+    #busqueda {
+        width: 100%;
+        max-width: 500px;
+        padding: 0.8rem;
+        border: 1px solid var(--neon-cyan);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 4px;
     }
 
     footer a {
@@ -374,5 +377,49 @@
         display: block;
         width: 80%;
         max-width: 250px;
+    }
+
+ 
+    .filtros {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .barra-busqueda {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .grupo-filtros {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .selector-filtro-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .selector-filtro {
+        width: 140px;
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .boton-neon,
+    a button.boton-neon {
+        width: 100%;
+        max-width: 300px;
+        font-size: 1rem;
+        padding: 0.6rem;
+        text-align: center;
     }
 }

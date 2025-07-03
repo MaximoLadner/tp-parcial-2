@@ -23,23 +23,34 @@
 
     <main class="contenedor">
         
-        <!-- Filtros y búsqueda -->
-        <section class="filtros">
-            <input type="text" id="busqueda" placeholder="Buscar misión... 🔍" class="barra-busqueda">
-            <div class="grupo-filtros">
-                <select id="filtro-anio" class="selector-filtro">
-                    <option value="">Todos los años</option>
-                </select>
-                <select id="filtro-estado" class="selector-filtro">
-                    <option value="" style="color: black;">Todos los estados</option>
-                    <option value="success" style="color: black;">✅Éxito</option>
-                    <option value="failure" style="color: black;">❌Fallo</option>
-                </select>
-                <button id="ordenar-fecha" class="boton-neon">Ordenar por fecha <i class="fas fa-arrow-down"></i></button>
-                <a href="/pages/lanzamientoRandom.html"><button class="boton-neon"> Generar lanzamiento random</button></a>
-                <a href="/pages/juego.html"><button class="boton-neon">Juego "¿Verdadero o Falso?"</button></a>
-            </div>
-        </section>
+       <!-- Filtros y búsqueda -->
+<section class="filtros">
+    <input type="text" id="busqueda" placeholder="Buscar misión... 🔍" class="barra-busqueda">
+
+    <div class="grupo-filtros">
+        
+        <div class="selector-filtro-container">
+            <select id="filtro-anio" class="selector-filtro">
+                <option value="">Todos los años</option>
+            </select>
+            <select id="filtro-estado" class="selector-filtro">
+                <option value="" style="color: black;">Todos los estados</option>
+                <option value="success" style="color: black;">✅Éxito</option>
+                <option value="failure" style="color: black;">❌Fallo</option>
+            </select>
+        </div>
+
+        <button id="ordenar-fecha" class="boton-neon">Ordenar por fecha <i class="fas fa-arrow-down"></i></button>
+
+        <a href="/pages/lanzamientoRandom.html">
+            <button class="boton-neon">Generar lanzamiento random</button>
+        </a>
+
+        <a href="/pages/juego.html">
+            <button class="boton-neon">Juego "¿Verdadero o Falso?"</button>
+        </a>
+    </div>
+</section>
 
         <!-- Tarjetas de lanzamientos -->
         <section id="contenedor-lanzamientos" class="grid-lanzamientos">
