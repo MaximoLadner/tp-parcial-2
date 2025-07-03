@@ -346,7 +346,7 @@
     }
 
    #busqueda {
-    width: 100%;
+    width: 87%;
     max-width: 500px; 
     padding: 0.8rem;
     border: 1px solid var(--neon-cyan);

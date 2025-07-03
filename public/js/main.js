@@ -29,27 +29,29 @@ function mostrarLanzamientosPaginados() {
     }
 
 
-    // Listo todas las tarjetas
+    // Listado de todas las tarjetas
     
     listaAMostrar.forEach(lanzamiento => {
-        const tarjeta = document.createElement('div');
-        tarjeta.className = 'tarjeta-lanzamiento';
-        tarjeta.innerHTML = `
-            <img class="imagenes-lanzamiento" src="${lanzamiento.links.patch.small || 'https://placehold.co/300x100?text=No-Image'}" alt="${lanzamiento.name}">
-            <div class="contenido-tarjeta">
-                <h3>Nombre del lanzamiento: ${lanzamiento.name}</h3>
-                <p class="fecha-lanzamiento"> Fecha de lanzamiento📅: ${new Date(lanzamiento.date_utc).toLocaleDateString()}</p>
-                <p class="estado-lanzamiento ${lanzamiento.success ? 'exito' : 'fallo'}">
-                    Estado del lanzamiento: ${lanzamiento.success ? '✅ Éxito' : '❌ Fallo'}
-                </p>
-                <button class="boton-detalle" onclick="mostrarDetalle('${lanzamiento.id}')">
-                    Ver detalles <i class="fas fa-rocket"></i>
-                </button>
-            </div>
-        `;
-        contenedorLanzamientos.appendChild(tarjeta);
-    });
-
+    const tarjeta = document.createElement('div');
+    tarjeta.className = 'tarjeta-lanzamiento';
+    tarjeta.innerHTML = `
+        <img class="imagenes-lanzamiento" 
+             src="${lanzamiento.links.patch.small || 'https://placehold.co/300x100?text=No-Image'}" 
+             alt="${lanzamiento.name}" 
+             loading="lazy">
+        <div class="contenido-tarjeta">
+            <h3>Nombre del lanzamiento: ${lanzamiento.name}</h3>
+            <p class="fecha-lanzamiento">Fecha de lanzamiento📅: ${new Date(lanzamiento.date_utc).toLocaleDateString()}</p>
+            <p class="estado-lanzamiento ${lanzamiento.success ? 'exito' : 'fallo'}">
+                Estado del lanzamiento: ${lanzamiento.success ? '✅ Éxito' : '❌ Fallo'}
+            </p>
+            <button class="boton-detalle" onclick="mostrarDetalle('${lanzamiento.id}')">
+                Ver detalles <i class="fas fa-rocket"></i>
+            </button>
+        </div>
+    `;
+    contenedorLanzamientos.appendChild(tarjeta);
+});
    
 }
 
