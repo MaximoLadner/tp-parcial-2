@@ -6,6 +6,10 @@
     --texto-claro: #e0e0e0;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -126,23 +130,6 @@ h1 {
     }
 }
 
-/* Efectos adicionales para mejorar la experiencia */
-@media (hover: hover) {
-    .boton {
-        transition: all 0.3s ease;
-    }
-    
-    .boton:hover {
-        box-shadow: 0 0 15px var(--neon-rosa);
-    }
-}
-
-/* Para pantallas muy grandes */
-@media (min-width: 1200px) {
-    .contenedor {
-        max-width: 900px;
-    }
-}
 
 @media (max-width: 600px) {
     body {
