@@ -294,7 +294,7 @@
     }
 }
 
-/* Móviles */
+
 @media (max-width: 600px) {
     .cabecera {
         margin-left: 0;
@@ -338,6 +338,11 @@
         width: 100%;
         height: auto;
         display: block;
+    }
+
+    #ordenar-fecha{
+        width: 280px;
+        text-align: left;
     }
 
    #busqueda {
