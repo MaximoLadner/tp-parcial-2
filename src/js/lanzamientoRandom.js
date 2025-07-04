@@ -3,7 +3,7 @@ const contenedor = document.getElementById('info-lanzamiento');
 // Obtener un lanzamiento random
 async function obtenerLanzamientoAleatorio() {
     try {
-        const res = await fetch('https://api.spacexdata.com/v4/launches');
+        const res = await fetch('https://api.spacexdata.com/v4/launches/');
         const lanzamientos = await res.json();
 
         // Elegir uno al azar

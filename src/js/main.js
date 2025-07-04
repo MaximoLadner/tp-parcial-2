@@ -135,18 +135,13 @@ filtroEstado.addEventListener('change', filtrarLanzamientos);
 botonOrdenarFecha.addEventListener('click', ordenarPorFecha);
 
 
-// Al abrirs el popup, hace un sonido.
-const sonidoPopup = new Audio('images/open_001.ogg');
-// Le bajo el sonido para no quedarme sordo.
-sonidoPopup.volume = 0.1;
-
-// popup
 function mostrarDetalle(idLanzamiento) {
     const lanzamiento = lanzamientos.find(l => l.id === idLanzamiento);
     if (!lanzamiento) return;
 
     const modal = document.getElementById("modalInfo");
     const contenido = document.getElementById("modalContenido");
+    const sonidoPopup = document.getElementById("sonido-popup");
 
     contenido.innerHTML = `
         <button class="cerrar-modal" onclick="cerrarModal()">✖</button>
@@ -156,9 +151,12 @@ function mostrarDetalle(idLanzamiento) {
         <p style="margin-bottom: 40px;"><strong>Detalles:</strong> ${lanzamiento.details || 'No hay detalles disponibles.'}</p>
         ${lanzamiento.links.webcast ? `<a href="${lanzamiento.links.webcast}" target="_blank" class="boton-neon">Ver video <i class="fab fa-youtube"></i></a>` : ''}
     `;
-    
-    sonidoPopup.play(); 
-     
+
+    // Reproducir sonido
+    sonidoPopup.volume = 0.1;
+    sonidoPopup.currentTime = 0;
+    sonidoPopup.play();
+
     modal.classList.add("mostrar");
 }
 
@@ -170,3 +168,7 @@ function cerrarModal() {
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', cargarLanzamientos);
+
+//debo hacr esto por el onclick
+window.mostrarDetalle = mostrarDetalle;
+window.cerrarModal = cerrarModal;

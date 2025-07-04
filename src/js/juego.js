@@ -1,3 +1,5 @@
+
+
 let puntos = 0;
 let misionActual = null;
 let esVerdadera = false;
@@ -5,7 +7,7 @@ let yaRespondio = false;
 
 // Trae una misión aleatoria desde la API de SpaceX
 async function obtenerMisionRandom() {
-    const res = await fetch("https://api.spacexdata.com/v4/launches");
+    const res = await fetch("https://api.spacexdata.com/v4/launches/");
     const data = await res.json();
     const random = data[Math.floor(Math.random() * data.length)];
     return random;
@@ -70,3 +72,8 @@ async function cargarNueva() {
 
 // Inicia el juego cuando la página carga
 window.onload = cargarNueva;
+
+
+// al usar onclick tenia problemas con las funciones. por eso debi agregar esto.
+window.cargarNueva = cargarNueva;
+window.responder = responder;
