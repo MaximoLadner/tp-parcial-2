@@ -76,7 +76,7 @@ h1 {
     background-color: var(--neon-rosa);
 }
 
-/* Media Queries para responsive */
+
 @media (max-width: 768px) {
     .contenedor {
         padding: 15px;
